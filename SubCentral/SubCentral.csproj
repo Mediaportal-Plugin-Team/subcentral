@@ -306,8 +306,9 @@
 if exist SubCentral_UNMERGED.dll del SubCentral_UNMERGED.dll
 ren SubCentral.dll SubCentral_UNMERGED.dll
 echo Merging...
-call "$(SolutionDir)packages\ilmerge.2.13.0307\ilmerge.exe" /out:SubCentral.dll SubCentral_UNMERGED.dll NLog.dll
+call "$(SolutionDir)packages\ilmerge.2.13.0307\ilmerge.exe" /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /out:SubCentral.dll SubCentral_UNMERGED.dll NLog.dll
 echo Merge done.</PostBuildEvent>
-    <PreBuildEvent>subwcrev "$(SolutionDir)." "$(ProjectDir)Properties\VersionInfo.cs.tmpl" "$(ProjectDir)Properties\VersionInfo.cs"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
