@@ -34,6 +34,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,15 +61,15 @@
   <ItemGroup>
     <Reference Include="Common.GUIPlugins">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Common.GUIPlugins.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Common.GUIPlugins.dll</HintPath>
     </Reference>
     <Reference Include="Common.Utils">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Common.Utils.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Common.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Core.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Core.dll</HintPath>
     </Reference>
     <Reference Include="Cornerstone, Version=1.0.6.1116, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -75,15 +77,18 @@
     </Reference>
     <Reference Include="Databases">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Databases.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Databases.dll</HintPath>
     </Reference>
     <Reference Include="Dialogs">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Dialogs.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Dialogs.dll</HintPath>
     </Reference>
     <Reference Include="GUIVideos">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\GUIVideos.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\GUIVideos.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaInfo.Wrapper, Version=19.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediaInfo.Wrapper.19.4.1\lib\net40\MediaInfo.Wrapper.dll</HintPath>
     </Reference>
     <Reference Include="MovingPictures, Version=1.0.6.1116, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -121,7 +126,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="Utils">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\External\MediaPortal v1.9\Utils.dll</HintPath>
+      <HintPath>..\External\MediaPortal v1.23\Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -252,12 +257,12 @@
     <Content Include="Localizations\Languages\nl.xml" />
     <Content Include="Localizations\Languages\sv.xml" />
     <Content Include="Resources\PayPalDonate.gif" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\SubCentralGUIIcon.png" />
     <None Include="Resources\SubCentralGUIIconBig.png" />
     <None Include="Resources\FolderPageWhite.png" />
     <None Include="Resources\PageWhiteText.png" />
-    <None Include="Properties\VersionInfo.cs.tmpl" />
     <None Include="Resources\Edit.png" />
     <None Include="Resources\SubCentralIconOld.ico" />
     <None Include="Resources\SubCentralIcon.ico" />
@@ -311,4 +316,11 @@ echo Merge done.</PostBuildEvent>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\MediaInfo.Native.19.4.0\build\MediaInfo.Native.targets" Condition="Exists('..\packages\MediaInfo.Native.19.4.0\build\MediaInfo.Native.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MediaInfo.Native.19.4.0\build\MediaInfo.Native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MediaInfo.Native.19.4.0\build\MediaInfo.Native.targets'))" />
+  </Target>
 </Project>

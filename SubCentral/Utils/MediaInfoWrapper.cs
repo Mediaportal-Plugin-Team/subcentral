@@ -9,8 +9,6 @@ namespace SubCentral.Utils {
         #region private vars
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        private MediaInfo _mI = null;
-
         private int _numSubtitles = 0;
 
         private bool _hasSubtitles = false;
@@ -48,18 +46,11 @@ namespace SubCentral.Utils {
             if (useMediaInfo) {
                 try {
                     logger.Debug("MediaInfoWrapper: Trying to use MediaInfo");
-                    _mI = new MediaInfo();
-                    _mI.Open(strFile);
-
-                    int.TryParse(_mI.Get(StreamKind.General, 0, "TextCount"), out _numSubtitles);
+                    var _mI = new MediaInfo.MediaInfoWrapper(strFile, MediaPortal.Services.GlobalServiceProvider.Get<MediaInfo.ILogger>());
+                    _numSubtitles = _mI.Subtitles.Count;
                 }
                 catch (Exception e) {
-                    logger.ErrorException(string.Format("MediaInfoWrapper: MediaInfo processing failed ('MediaInfo.dll' may be missing){0}", Environment.NewLine), e);
-                }
-                finally {
-                    if (_mI != null) {
-                        _mI.Close();
-                    }
+                    logger.Error(string.Format("MediaInfoWrapper: MediaInfo processing failed ('MediaInfo.dll' may be missing){0}", Environment.NewLine), e);
                 }
             }
 
@@ -129,7 +120,7 @@ namespace SubCentral.Utils {
                 }
             }
             catch (Exception e) {
-                logger.WarnException(string.Format("Error checking external subtitles for file {0}{1}", strFile, Environment.NewLine), e);
+                logger.Warn(string.Format("Error checking external subtitles for file {0}{1}", strFile, Environment.NewLine), e);
             }
 
             return result;
