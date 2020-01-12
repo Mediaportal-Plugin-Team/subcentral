@@ -30,7 +30,7 @@
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
-              <LocalFileName>..\External\NLog.dll</LocalFileName>
+              <LocalFileName>..\packages\NLog.3.1.0.0\lib\net40\NLog.dll</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{c0c1a13f-2a46-47fa-bdd0-af68d3be0b38}-NLog.dll</ZipFileName>
               <DestinationFilename>%Base%\NLog.dll</DestinationFilename>
             </FileItem>
@@ -589,7 +589,7 @@ Click Next to continue or Cancel to exit Setup.</Value>
               <Params>
                 <Items>
                   <SectionParam Name="Extension package">
-                    <Value>..\External\SubtitleDownloader-3.0.17.0.mpe1</Value>
+                    <Value />
                     <ValueType>File</ValueType>
                     <Description>Location of the extension package</Description>
                   </SectionParam>
@@ -599,12 +599,12 @@ Click Next to continue or Cancel to exit Setup.</Value>
                     <Description>Silent install, No wizard screen will be displayed </Description>
                   </SectionParam>
                   <SectionParam Name="Extension Id">
-                    <Value />
+                    <Value>50d7c352-8ae1-406d-b899-2131e03d4f1e</Value>
                     <ValueType>String</ValueType>
                     <Description>Global Id of the extension package - it will be downloaded when no file is set.</Description>
                   </SectionParam>
                   <SectionParam Name="Extension Version">
-                    <Value />
+                    <Value>3.0.16.0</Value>
                     <ValueType>String</ValueType>
                     <Description>Minimum Version of the extension package - older versions will be updated (only used when downloading via Id).</Description>
                   </SectionParam>
@@ -763,7 +763,7 @@ Click Next to continue or Cancel to exit Setup.</Value>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
-        <LocalFileName>..\External\NLog.dll</LocalFileName>
+        <LocalFileName>..\packages\NLog.3.1.0.0\lib\net40\NLog.dll</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{c0c1a13f-2a46-47fa-bdd0-af68d3be0b38}-NLog.dll</ZipFileName>
         <DestinationFilename>%Base%\NLog.dll</DestinationFilename>
       </FileItem>
@@ -1151,13 +1151,6 @@ Click Next to continue or Cancel to exit Setup.</Value>
         <LocalFileName>..\SubCentral\GUI\Skins\DefaultWide\SubCentral.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{b7ed1ed1-5bf7-4b2c-b12a-dc3360113e0c}-SubCentral.xml</ZipFileName>
         <DestinationFilename>%Skin%\DefaultWide\SubCentral.xml</DestinationFilename>
-      </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
-        <Param1 />
-        <UpdateOption>OverwriteIfOlder</UpdateOption>
-        <LocalFileName>..\External\SubtitleDownloader-3.0.17.0.mpe1</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{cc65592f-8024-4846-a35c-3e0925722fe8}-SubtitleDownloader-3.0.17.0.mpe1</ZipFileName>
-        <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
