@@ -707,11 +707,11 @@ Click Next to continue or Cancel to exit Setup.</Value>
     <Version>
       <Major>1</Major>
       <Minor>2</Minor>
-      <Build>6</Build>
+      <Build>7</Build>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>SubCentral is a standalone subtitles plug-in for the MediaPortal HTPC application. The purpose of the plug-in is to allow user to search and download subtitles for movies or TV shows managed by popular Moving Pictures and MP-TVSeries plug-ins. It also has the interfaces to allow easy implementation and integration in any other plug-in.</ExtensionDescription>
-    <VersionDescription>Added compatibilty with MediaPortal 1.23
+    <VersionDescription>Set platform to anycpu
 
 </VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
@@ -1156,7 +1156,7 @@ Click Next to continue or Cancel to exit Setup.</Value>
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>Icon.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{9688cc7d-aaa4-40f0-8553-ffea4f036f26}-Icon.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{5d2f860d-445c-49e1-a970-2e05865a21c7}-Icon.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
     </Items>
